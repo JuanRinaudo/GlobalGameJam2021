@@ -9,11 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3223225740564952302}
-  - component: {fileID: 3223225740564952298}
-  - component: {fileID: 3223225740564952297}
-  - component: {fileID: 3223225740564952296}
+  - component: {fileID: 5437035578898874602}
   - component: {fileID: 3223225740564952303}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,69 +32,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3223225740564952298
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3223225740564952301}
-  m_Mesh: {fileID: 0}
---- !u!23 &3223225740564952297
-MeshRenderer:
+--- !u!114 &5437035578898874602
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3223225740564952301}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 866da0c2f735ff045a116bd0fe3dd281, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3223225740564952296
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3223225740564952301}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22fa196efa40ab640b085619a3f4f333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magicStones: []
+  spawn: {fileID: 0}
+  pathfinder: {fileID: 0}
 --- !u!114 &3223225740564952303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,25 +59,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c27825400222d04e80f1edb2bd62c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: {fileID: 5437035578898874602}
   player: {fileID: 0}
-  spawn: {fileID: 0}
   mapSize: 150
+  chunkSize: 10
   clearArea: {fileID: 1536661054012209125, guid: a37ef96e61d08ec4296da92132dda8ee, type: 3}
+  pathfinder: {fileID: 0}
+  chunkPrefab: {fileID: 8547115348348270188, guid: 03a882fba6fa7b847990e6893a77f70b, type: 3}
   perlinOffset: {x: 0.1, y: 0.1}
   cellSize: 2
-  centerFlatZone: 6
+  centerFlatZone: 7.5
   maxHeight: 2
-  magicStonePrefab: {fileID: 7138511061318610287, guid: 234415f0cac523f4688123e83e1a2d5c, type: 3}
+  monsterPrefab: {fileID: 480935438260078581, guid: b7e1e2f1fe6d1f84094f318f874b68b9, type: 3}
+  monsterCount: 50
+  monsterGenerationMask:
+    serializedVersion: 2
+    m_Bits: 896
+  spawnPrefab: {fileID: 4345205452903887840, guid: 1af9bfc456da25e4a9627604b823eb39, type: 3}
+  magicStonePrefabs:
+  - {fileID: 7138511061318610287, guid: 234415f0cac523f4688123e83e1a2d5c, type: 3}
+  - {fileID: 7138511061318610287, guid: 597fba021e8c1084592020e5b6c3e4fb, type: 3}
+  - {fileID: 7138511061318610287, guid: 814fad85d17ec22448a6af2699c0e8c4, type: 3}
+  - {fileID: 7138511061318610287, guid: ce09b6bacb0ba6c40840323c2444de56, type: 3}
   stoneDistances:
-  - 0.2
-  - 0.4
-  - 0.6
-  - 0.8
+  - 0.25
+  - 0.45
+  - 0.65
+  - 0.85
   treeGenerationMask:
     serializedVersion: 2
     m_Bits: 640
-  treePrefab: {fileID: 2388957094741118047, guid: eaf9726585a11ab46a29c79d3a1d5fc8, type: 3}
+  treePrefabs:
+  - {fileID: 2388957094741118047, guid: eaf9726585a11ab46a29c79d3a1d5fc8, type: 3}
+  - {fileID: 2388957094741118047, guid: 15299d67727d8dd41b5a53174487c9fe, type: 3}
+  - {fileID: 2388957094741118047, guid: 9b2f9f2233eadcd40a4842f7a698e926, type: 3}
   treePerlinOffset: {x: 0, y: 0}
-  probeOffset: 0.3
-  treeThreshold: 0.82
+  probeOffset: 0.6123
+  treeThreshold: 0.8
   treeWobbleSize: 0.25

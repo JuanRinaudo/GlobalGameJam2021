@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private Vector3 stoneStartPosition;
+    public float stoneDeltaY = 1;
+    public float stoneSpeed = 1;
+    public float stoneOffset = 1.2345f;
+    public GameObject stone;
+
+    public GameObject[] stoneSlot;
+
+    void Awake()
     {
-        
+        stoneStartPosition = stone.transform.localPosition;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        stone.transform.localPosition = stoneStartPosition + new Vector3(0, Mathf.Sin(Time.time * stoneSpeed + stoneOffset) * stoneDeltaY, 0);
     }
 }
